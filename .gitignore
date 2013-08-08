@@ -1,0 +1,5 @@
+lib/*
+.coverage
+.noseids
+*.sublime-*
+.build
