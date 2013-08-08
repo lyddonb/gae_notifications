@@ -1,0 +1,34 @@
+application: db-example
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+skip_files: |
+ ^(.*/)?(
+ (app\.yaml)|
+ (app\.yml)|
+ (#.*#)|
+ (.*~)|
+ (.*\.py[co])|
+ (.*/RCS/.*)|
+ (\..*)|
+ (settingslocal\.py)|
+ (node_modules)|
+ )$
+
+builtins:
+- appstats: on
+- remote_api: on
+
+admin_console:
+  pages:
+  - name: Appstats
+    url: /_ah/stats/
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: main.app
